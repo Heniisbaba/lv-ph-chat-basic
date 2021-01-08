@@ -2027,7 +2027,8 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     this.fetchMessages(this.sender);
-    Echo["private"]("chat.".concat(this.user)).listen('MessageSent', function (e) {
+    console.log("chat-".concat(this.user, "-").concat(this.sender));
+    Echo["private"]("chat-".concat(this.user, "-").concat(this.sender)).listen('MessageSent', function (e) {
       _this.messages.push({
         message: e.message.message,
         created_at: e.message.created_at,

@@ -33,7 +33,9 @@
         created() {
             this.fetchMessages(this.sender);
 
-            Echo.private(`chat.${this.user}`)
+            console.log(`chat-${this.user}-${this.sender}`);
+
+            Echo.private(`chat-${this.user}-${this.sender}`)
             .listen('MessageSent', (e) => {
                 this.messages.push({
                     message: e.message.message,
