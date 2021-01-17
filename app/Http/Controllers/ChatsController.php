@@ -50,7 +50,7 @@ class ChatsController extends Controller
         $msg = Message::with('sender')->where('user_id',$sender)->where('receiver_id',$chat_id)->get();
         $myMsg = Message::with('sender')->where('user_id',$chat_id)->where('receiver_id',$sender)->get();
 
-        return new MessagesResource($msg->merge($myMsg)->sortBy('id'));
+        return new MessagesResource($msg->merge($myMsg)->sortByDesc('id'));
     }
 
     /**
